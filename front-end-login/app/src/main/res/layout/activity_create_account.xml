@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateAccount">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TELA DE CADASTRO"
+        android:textStyle="bold"
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etNome"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="nome" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etEmail"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="email" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etPassword"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="password" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSinUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="SIGN UP"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

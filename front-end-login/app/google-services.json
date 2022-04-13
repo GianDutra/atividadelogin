@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "398446506408",
+    "project_id": "loginatividade",
+    "storage_bucket": "loginatividade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398446506408:android:a0a443058191cc457e2d9d",
+        "android_client_info": {
+          "package_name": "br.com.zonaazul.login_activity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398446506408-29cn7deejkmepqkhkhut8r40s0ept4b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIfyczzcp61Z4DyuC6FEu9QKIw6rSvVNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398446506408-29cn7deejkmepqkhkhut8r40s0ept4b9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

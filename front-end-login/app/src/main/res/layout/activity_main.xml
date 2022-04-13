@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:text="HOME"
+        android:textStyle="bold"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="CLIQUE AQUI PARA JOGAR POKER"
+        android:textStyle="bold"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="CLIQUE AQUI PARA JOGAR BLACKJACK"
+        android:textStyle="bold"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
