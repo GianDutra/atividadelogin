@@ -1,8 +1,10 @@
 package br.com.zonaazul.login_activity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.button.MaterialButton
@@ -18,9 +20,9 @@ import com.google.gson.GsonBuilder
 
 class CreateAccount : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var etNome: TextInputEditText
     private lateinit var etEmail: TextInputEditText
     private lateinit var etPassword: TextInputEditText
+    private lateinit var etConfirmedSenha: TextInputEditText
     private lateinit var btnSinUp: MaterialButton
 
     private lateinit var functions: FirebaseFunctions
@@ -38,9 +40,9 @@ class CreateAccount : AppCompatActivity() {
         functions = Firebase.functions("southamerica-east1")
 
         auth = Firebase.auth
-        etNome = findViewById(R.id.etNome)
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
+        etConfirmedSenha = findViewById(R.id.etConfirmedSenha)
         btnSinUp = findViewById(R.id.btnSinUp)
 
 
@@ -48,9 +50,15 @@ class CreateAccount : AppCompatActivity() {
         // ajustando o listener do btnSinUp
         btnSinUp.setOnClickListener {
 
+            hideMyKeyboard()
+
+            if(etConfirmedSenha.text.toString() != etPassword.text.toString()) {
+                Snackbar.make(btnSinUp, "As senhas não são iguais, confirme novamente", Snackbar.LENGTH_LONG).show();
+            }
+
             auth.createUserWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
 
-            val u = usuarios (etNome.text.toString(), etEmail.text.toString(), etPassword.text.toString())
+            val u = usuarios (etEmail.text.toString(), etPassword.text.toString())
             cadastrarUsuario(u)
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
@@ -131,11 +139,19 @@ class CreateAccount : AppCompatActivity() {
 
     }
 
+    private fun hideMyKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val hideMe = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            hideMe.hideSoftInputFromWindow(view.windowToken, 0)
+        } else
+            window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+    }
+
 
     private fun cadastrarUsuario(u: usuarios): Task<String> {
         val data = hashMapOf(
-            "nome" to u.nome,
-            "email" to u.email
+            "email" to u.email,
         )
         return functions
             .getHttpsCallable("addUsuario")
